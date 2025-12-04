@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dle3tfogcwir1"]
 
-[ext_resource type="Script" path="res://scripts/pinguin.gd" id="1_v8dy5"]
+[ext_resource type="Script" uid="uid://1tex0udbguqj" path="res://scripts/pinguin.gd" id="1_v8dy5"]
 [ext_resource type="Texture2D" uid="uid://csxs356eqayun" path="res://assets/models/Player/Linux Penguin (Texture).png" id="2_e10l5"]
 [ext_resource type="ArrayMesh" uid="uid://dr6jxy06b7lim" path="res://assets/models/Player/Linux Penguin.obj" id="3_13qsv"]
 
@@ -47,7 +47,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 75
-text = "Press \"Space\""
 
 [node name="ModelPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142948, -0.123926, -0.0587925)
