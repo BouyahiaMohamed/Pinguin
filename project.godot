@@ -13,7 +13,6 @@ config_version=5
 config/name="Roll & Grow"
 run/main_scene="res://scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.3")
-config/icon="res://icon.png"
 
 [autoload]
 
@@ -32,6 +31,10 @@ window/stretch/mode="viewport"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [gui]
 

@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dle3tfogcwir1"]
+
+[ext_resource type="Script" path="res://scripts/pinguin.gd" id="1_v8dy5"]
+[ext_resource type="Texture2D" uid="uid://csxs356eqayun" path="res://assets/models/Player/Linux Penguin (Texture).png" id="2_e10l5"]
+[ext_resource type="ArrayMesh" uid="uid://dr6jxy06b7lim" path="res://assets/models/Player/Linux Penguin.obj" id="3_13qsv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cghm7"]
+friction = 0.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nah1j"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aldgw"]
+albedo_texture = ExtResource("2_e10l5")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_agtvd"]
+radius = 0.351012
+height = 1.45052
+
+[node name="Pinguin" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_cghm7")
+linear_damp = 0.44
+script = ExtResource("1_v8dy5")
+
+[node name="FloorCheck" type="RayCast3D" parent="."]
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0, 0.00766608, 0)
+
+[node name="CameraRig" type="Marker3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="CameraRig"]
+transform = Transform3D(0.375, 0, 0, 0, 0.347939, 0.139871, 0, -0.139871, 0.347939, 0.0608402, 0.310904, 1.59653)
+ignore_occlusion_culling = true
+texture = SubResource("ViewportTexture_nah1j")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.92755, 0.3737, 0, -0.3737, 0.92755, 0, 1.62669, 2.62811)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Label" type="Label" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 75
+text = "Press \"Space\""
+
+[node name="ModelPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142948, -0.123926, -0.0587925)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelPivot"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.0142948, 0.199811, 0.0587925)
+material_override = SubResource("StandardMaterial3D_aldgw")
+mesh = ExtResource("3_13qsv")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142948, -0.123926, -0.0587925)
+shape = SubResource("CapsuleShape3D_agtvd")
