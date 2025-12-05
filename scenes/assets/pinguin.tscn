@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dle3tfogcwir1"]
 
-[ext_resource type="Script" uid="uid://1tex0udbguqj" path="res://scripts/pinguin.gd" id="1_v8dy5"]
+[ext_resource type="Script" path="res://scripts/pinguin.gd" id="1_v8dy5"]
 [ext_resource type="Texture2D" uid="uid://csxs356eqayun" path="res://assets/models/Player/Linux Penguin (Texture).png" id="2_e10l5"]
 [ext_resource type="ArrayMesh" uid="uid://dr6jxy06b7lim" path="res://assets/models/Player/Linux Penguin.obj" id="3_13qsv"]
 
@@ -14,8 +14,8 @@ viewport_path = NodePath("SubViewport")
 albedo_texture = ExtResource("2_e10l5")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_agtvd"]
-radius = 0.351012
-height = 1.45052
+radius = 11.1374
+height = 22.2749
 
 [node name="Pinguin" type="RigidBody3D"]
 axis_lock_angular_x = true
@@ -49,14 +49,14 @@ theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 75
 
 [node name="ModelPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142948, -0.123926, -0.0587925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142948, -0.150324, -0.0587925)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ModelPivot"]
-transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.0142948, 0.199811, 0.0587925)
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0.0142948, 0.696387, 0.0587925)
 material_override = SubResource("StandardMaterial3D_aldgw")
 mesh = ExtResource("3_13qsv")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0142948, -0.123926, -0.0587925)
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.015396, 0.199951, -0.0587925)
 shape = SubResource("CapsuleShape3D_agtvd")

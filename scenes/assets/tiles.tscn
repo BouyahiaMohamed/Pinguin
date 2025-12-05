@@ -1,6 +1,6 @@
 [gd_scene load_steps=175 format=4 uid="uid://d4e5ci5dv34j1"]
 
-[ext_resource type="Texture2D" uid="uid://dei1sf43ptomh" path="res://assets/models/Buildings/Textures/colormap.png" id="1_14ckj"]
+[ext_resource type="Texture2D" uid="uid://pi72ossy0t31" path="res://assets/models/Buildings/Textures/colormap.png" id="1_14ckj"]
 [ext_resource type="PackedScene" uid="uid://cirsqn6moich0" path="res://assets/models/Buildings/cabin-corner-bottom.glb" id="3_fyf5i"]
 [ext_resource type="PackedScene" uid="uid://bxnh8mi7ehhnt" path="res://assets/models/Buildings/cabin-corner-logs.glb" id="4_7jf1n"]
 [ext_resource type="PackedScene" uid="uid://3kqjgqb7138i" path="res://assets/models/Buildings/cabin-corner.glb" id="5_4p040"]
@@ -272,9 +272,9 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 1.9377e-16, 0, -1, 0.0333333, 1, 0, 
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6bpxe"]
 _data = {
-&"close": SubResource("Animation_g55ho"),
-&"open": SubResource("Animation_d648b"),
-&"open-and-close": SubResource("Animation_c2njl")
+"close": SubResource("Animation_g55ho"),
+"open": SubResource("Animation_d648b"),
+"open-and-close": SubResource("Animation_c2njl")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egp6x"]
@@ -469,9 +469,9 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 1.9377e-16, 0, -1, 0.0333333, 1, 0, 
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w07jl"]
 _data = {
-&"close": SubResource("Animation_h2p4y"),
-&"open": SubResource("Animation_25iqf"),
-&"open-and-close": SubResource("Animation_1wuyg")
+"close": SubResource("Animation_h2p4y"),
+"open": SubResource("Animation_25iqf"),
+"open-and-close": SubResource("Animation_1wuyg")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wskea"]
@@ -1411,7 +1411,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wygjg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="cabin-door-rotate2"]
 libraries = {
-&"": SubResource("AnimationLibrary_6bpxe")
+"": SubResource("AnimationLibrary_6bpxe")
 }
 
 [node name="cabin-doorway-center2" parent="." instance=ExtResource("7_gltry")]
@@ -1455,7 +1455,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_e8gc8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="cabin-overhang-door-rotate2"]
 libraries = {
-&"": SubResource("AnimationLibrary_w07jl")
+"": SubResource("AnimationLibrary_w07jl")
 }
 
 [node name="cabin-overhang-doorway2" type="Node3D" parent="."]
