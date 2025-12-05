@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://rhfxoalxyr60"]
+[gd_scene load_steps=5 format=3 uid="uid://rhfxoalxyr60"]
 
 [ext_resource type="PackedScene" uid="uid://cd0jbh4metflb" path="res://addons/maaacks_game_template/base/scenes/loading_screen/loading_screen.tscn" id="1_a8kcw"]
 [ext_resource type="Script" path="res://scenes/loading_screen/loading_screen.gd" id="2_53rj4"]
+[ext_resource type="Texture2D" uid="uid://l3uawu8hwvk3" path="res://assets/Bg/MainMenu.png" id="3_syjwn"]
+[ext_resource type="Texture2D" uid="uid://ueskvtw0tymr" path="res://assets/godot_engine_logo/logo_vertical_color_dark.png" id="4_uxn77"]
 
 [node name="LoadingScreen" instance=ExtResource("1_a8kcw")]
 script = ExtResource("2_53rj4")
+
+[node name="MainMenu" type="Sprite2D" parent="." index="0"]
+position = Vector2(1299, 718.25)
+scale = Vector2(1.46222, 1.63214)
+texture = ExtResource("3_syjwn")
+
+[node name="BackPanel" parent="Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+offset_left = -18.0
+offset_top = -12.0
+offset_right = 27.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LogoVerticalColorDark" type="Sprite2D" parent="." index="3"]
+position = Vector2(1949, 1211)
+texture = ExtResource("4_uxn77")

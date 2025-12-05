@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn02kotqcawyw"]
+[gd_scene load_steps=5 format=3 uid="uid://dn02kotqcawyw"]
 
 [ext_resource type="PackedScene" uid="uid://cd0jbh4metflb" path="res://addons/maaacks_game_template/base/scenes/loading_screen/loading_screen.tscn" id="1_b4fsf"]
 [ext_resource type="Script" path="res://scenes/loading_screen/loading_screen.gd" id="2_akme8"]
+[ext_resource type="Texture2D" uid="uid://l3uawu8hwvk3" path="res://assets/Bg/MainMenu.png" id="3_26em8"]
+[ext_resource type="Texture2D" uid="uid://ueskvtw0tymr" path="res://assets/godot_engine_logo/logo_vertical_color_dark.png" id="4_hg4ht"]
 
 [node name="LevelLoadingScreen" instance=ExtResource("1_b4fsf")]
 script = ExtResource("2_akme8")
@@ -9,3 +11,13 @@ _in_progress = "Loading Level..."
 _in_progress_waiting = "Still Loading Level..."
 _in_progress_still_waiting = "Still Loading Level... (%d seconds)"
 _complete = "Loading Level Complete!"
+
+[node name="MainMenu" type="Sprite2D" parent="." index="0"]
+position = Vector2(1290.5, 716.25)
+scale = Vector2(1.48278, 1.64558)
+texture = ExtResource("3_26em8")
+
+[node name="LogoVerticalColorDark" type="Sprite2D" parent="." index="3"]
+position = Vector2(1314.5, 1223)
+scale = Vector2(4.28269, 1)
+texture = ExtResource("4_hg4ht")

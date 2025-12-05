@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://x4fx8gc1hiy1"]
+[gd_scene load_steps=6 format=3 uid="uid://x4fx8gc1hiy1"]
 
 [ext_resource type="PackedScene" uid="uid://cd0jbh4metflb" path="res://addons/maaacks_game_template/base/scenes/loading_screen/loading_screen.tscn" id="1_alqvd"]
 [ext_resource type="Script" path="res://scenes/loading_screen/loading_screen_with_shader_caching.gd" id="2_n5fdm"]
+[ext_resource type="Texture2D" uid="uid://l3uawu8hwvk3" path="res://assets/Bg/MainMenu.png" id="3_dften"]
+[ext_resource type="Texture2D" uid="uid://ueskvtw0tymr" path="res://assets/godot_engine_logo/logo_vertical_color_dark.png" id="4_ei13x"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_klnwy"]
 
@@ -14,9 +16,18 @@ _matching_extensions = Array[String]([".tres", ".material", ".res"])
 _ignore_subfolders = Array[String]([".", ".."])
 _shader_delay_timer = 0.1
 
-[node name="SpatialShaderTypeCaches" type="Node3D" parent="." index="2"]
+[node name="MainMenu" type="Sprite2D" parent="." index="0"]
+position = Vector2(1285, 724.25)
+scale = Vector2(1.46667, 1.65901)
+texture = ExtResource("3_dften")
+
+[node name="SpatialShaderTypeCaches" type="Node3D" parent="." index="3"]
 unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="SpatialShaderTypeCaches" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.408)
 current = true
+
+[node name="LogoVerticalColorDark" type="Sprite2D" parent="." index="4"]
+position = Vector2(2318, 1226)
+texture = ExtResource("4_ei13x")

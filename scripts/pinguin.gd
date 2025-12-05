@@ -10,8 +10,10 @@ extends RigidBody3D
 @onready var camera_rig: Node3D = $CameraRig
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
-@onready var game_over_1: Panel = $"../CanvasLayer/GameOver1" 
-@onready var end: Panel = $"../CanvasLayer/End"
+@onready var game_over_1: Panel = $CanvasLayer/GameOver1
+
+@onready var end: Panel = $CanvasLayer/End
+
 
 var reset_position = false
 var twist_input := 0.0
@@ -47,10 +49,11 @@ func _physics_process(delta: float) -> void:
 		
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
+	input.z = Input.get_axis("move_up", "move_down")
 	
 	var current_force = 900 if Input.is_action_pressed("boost") else rolling_force
 
-	var force = camera_rig.basis * current_force * delta * Vector3(0 * input.x, 0, -1)
+	var force = camera_rig.basis * current_force * delta * input
 	apply_central_force(force)
 
 	if Input.is_action_pressed("look_left"): camera_rig.rotate_y(mouse_sensitivity)
@@ -108,10 +111,15 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == self and not is_dead:
-		print("Mort !")
 		is_dead = true
 		game_over_1.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+func kill(body: Node3D):
+	is_dead = true
+	if body == self:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		game_over_1.visible = true
 
 func _on_button_pressed() -> void:
 	print('Respawn !')
@@ -123,4 +131,17 @@ func _on_button_pressed() -> void:
 
 func _on_end_body_entered(body: Node3D) -> void:
 	if body == self:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		end.visible = true
+
+
+func _on_kill_1_body_entered(body: Node3D) -> void:
+	if body == self:
+		kill(body)
+
+
+func _on_end_button_pressed() -> void:
+	if is_instance_valid(SceneLoader):
+		SceneLoader.load_scene("res://scenes/game_scene/levels/level_2.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/game_scene/levels/level_2.tscn")

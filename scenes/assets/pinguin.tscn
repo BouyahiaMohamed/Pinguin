@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dle3tfogcwir1"]
+[gd_scene load_steps=10 format=3 uid="uid://dle3tfogcwir1"]
 
 [ext_resource type="Script" path="res://scripts/pinguin.gd" id="1_v8dy5"]
 [ext_resource type="Texture2D" uid="uid://csxs356eqayun" path="res://assets/models/Player/Linux Penguin (Texture).png" id="2_e10l5"]
@@ -16,6 +16,12 @@ albedo_texture = ExtResource("2_e10l5")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_agtvd"]
 radius = 11.1374
 height = 22.2749
+
+[sub_resource type="LabelSettings" id="LabelSettings_6dxxi"]
+font_size = 136
+
+[sub_resource type="LabelSettings" id="LabelSettings_pl52a"]
+font_size = 136
 
 [node name="Pinguin" type="RigidBody3D"]
 axis_lock_angular_x = true
@@ -60,3 +66,60 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.015396, 0.199951, -0.0587925)
 shape = SubResource("CapsuleShape3D_agtvd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="End" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_left = 504.0
+offset_top = 256.0
+offset_right = 2080.0
+offset_bottom = 1168.0
+
+[node name="Label" type="Label" parent="CanvasLayer/End"]
+layout_mode = 0
+offset_right = 1572.0
+offset_bottom = 168.0
+text = "FIN"
+label_settings = SubResource("LabelSettings_6dxxi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndButton" type="Button" parent="CanvasLayer/End"]
+offset_left = 592.0
+offset_top = 709.0
+offset_right = 921.0
+offset_bottom = 857.0
+theme_override_font_sizes/font_size = 80
+text = "OK"
+
+[node name="GameOver1" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_left = 504.0
+offset_top = 256.0
+offset_right = 2080.0
+offset_bottom = 1168.0
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOver1"]
+layout_mode = 0
+offset_right = 1572.0
+offset_bottom = 168.0
+text = "Votre Linux a 
+planté ! 
+(sur un arbre)"
+label_settings = SubResource("LabelSettings_pl52a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/GameOver1"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 709.0
+offset_right = 921.0
+offset_bottom = 857.0
+theme_override_font_sizes/font_size = 80
+text = "OK"
+
+[connection signal="pressed" from="CanvasLayer/End/EndButton" to="." method="_on_end_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/End/EndButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOver1/Button" to="." method="_on_button_pressed"]
