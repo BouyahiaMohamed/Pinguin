@@ -106,7 +106,7 @@ offset_right = 1572.0
 offset_bottom = 168.0
 text = "Votre Linux a 
 planté ! 
-(sur un arbre)"
+(littéralement)"
 label_settings = SubResource("LabelSettings_pl52a")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -145,3 +145,16 @@ func _on_end_button_pressed() -> void:
 		SceneLoader.load_scene("res://scenes/game_scene/levels/level_2.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/game_scene/levels/level_2.tscn")
+
+
+func _on_end_final_body_entered(body: Node3D) -> void:
+	if body == self:
+		if is_instance_valid(SceneLoader):
+			SceneLoader.load_scene("res://scenes/menus/main_menu/main_menu_with_animations.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/menus/main_menu/main_menu_with_animations.tscn")
+
+
+func _on_out_of_bound_body_entered(body: Node3D) -> void:
+	if body == self:
+		reset_position = true
